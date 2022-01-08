@@ -18,6 +18,8 @@ def DrinkWater():
     try:
         api.update_status(status=text)
     except Exception as e:
+        text = random.choice(frases)
+        api.update_status(status=text)
         print(e)
         pass
 
@@ -82,8 +84,10 @@ schedule.every().day.at("08:00").do(sayGoodMorning)
 schedule.every().day.at("22:00").do(sayGoodNight)
 schedule.every(2).hours.at(":12").do(DrinkWater)
 schedule.every().hour.at(":40").do(saytimeParnaiba)
-
-while True:
-    schedule.run_pending()
-    print('agendando...')
-    time.sleep(1)
+try:    
+    while True:
+        schedule.run_pending()
+        time.sleep(2)
+except Exception as e:
+    print(e)
+    pass
