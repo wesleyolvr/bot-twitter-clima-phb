@@ -85,4 +85,5 @@ schedule.every().hour.at(":40").do(saytimeParnaiba)
 
 while True:
     schedule.run_pending()
+    print('agendando...')
     time.sleep(1)
