@@ -1,4 +1,3 @@
-import sched
 import schedule
 import time
 import requests
