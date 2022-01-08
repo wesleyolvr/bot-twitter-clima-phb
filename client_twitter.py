@@ -7,7 +7,7 @@ import os
 # access_token_secret = 'cmxnZXcnjp6uts78yoP1BaNUuEJUVvbY3ZGZF5efemp4w'
 
 access_token_key = os.environ['access_token_key']
-access_token_secret = os.environ['HOMaccess_token_secretE']
+access_token_secret = os.environ['access_token_secret']
 consumer_key = os.environ['consumer_key']
 consumer_secret = os.environ['consumer_secret']
 Bearer_token = os.environ['Bearer_token']
