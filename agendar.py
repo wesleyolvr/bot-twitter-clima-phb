@@ -1,7 +1,7 @@
 import schedule
 import time
 import requests
-from bot_twitter.client_twitter import api
+from client_twitter import api
 import random
 
 
