@@ -64,6 +64,7 @@ def sayGoodNight():
         pass
 
 def sayPrevisaoParnaiba():
+    print('Previsão para o dia seguinte')
     response = requests.get(url_phb)
     data_previsao = response.json()['results']['forecast'][1]['date']
     dia_previsao = response.json()['results']['forecast'][1]['weekday']
@@ -101,7 +102,7 @@ def saytimeParnaiba():
 
 schedule.every().friday.at("09:00").do(SayGoodFriday)
 schedule.every().day.at("08:00").do(sayGoodMorning)
-schedule.every().day.at("14:44").do(sayPrevisaoParnaiba)
+schedule.every().day.at("16:00").do(sayPrevisaoParnaiba)
 schedule.every().day.at("22:00").do(sayGoodNight)
 schedule.every(2).hours.at(":10").do(DrinkWater)
 schedule.every().hour.at(":40").do(saytimeParnaiba)
