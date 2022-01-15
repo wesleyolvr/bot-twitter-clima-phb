@@ -1,3 +1,4 @@
+from calendar import weekday
 import schedule
 import time
 import requests
@@ -5,14 +6,19 @@ from client_twitter import api
 import random
 
 
-url = 'https://api.hgbrasil.com/weather?woeid=455975&format=json'
+url_phb = 'https://api.hgbrasil.com/weather?woeid=455975&format=json'
 
 
 def DrinkWater():
     frases = ['vai beber água vai! quem avisa amigo é viu 💦🚰',
               'ja bebeu agua? não? pois vaitimbora beber agua então abestado! 💦🚰',
               'Beba água, ja bastam as pedras no caminho, não queira ter nos ✨ rins ✨ ',
-              'Você não é um cacto, beba água! 💦🚰',]
+              'Você não é um cacto, beba água! 💦🚰',
+              'Hidrate-se para :\n-Ter uma pele jovem\n-Ajudar o metabolismo\n-Regular o intestino\n-Eliminar toxinas\n-Emagrecer'
+              'Por favor, não se esqueça de beber agua, te amo ❤️',
+              'Quando você quer algo e não sabe o quê, beba água. é sempre água. 💦',
+              'nera tu que disse que ia ser fitness esses dias? pois vai pelo menos beber água! 💦',
+              'BEBA AGUA, pois se você não cuida do seu corpo, onde vocẽ vai viver? 💦🚰']
     text = random.choice(frases)
     print(text)
     try:
@@ -57,9 +63,23 @@ def sayGoodNight():
         print(e)
         pass
 
+def sayPrevisaoParnaiba():
+    response = requests.get(url_phb)
+    data_previsao = response.json()['results']['forecast'][1]['date']
+    dia_previsao = response.json()['results']['forecast'][1]['weekday']
+    max = response.json()['results']['forecast'][1]['max']
+    min = response.json()['results']['forecast'][1]['min']
+    text = f'Previsão para {dia_previsao}, {data_previsao}:\n🌡️ Max: {max}°C\n🥶 Min: {min}°C'
+    print(text)
+    try:
+        api.update_status(status=text)
+    except Exception as e:
+        print(e)
+        pass
+    
 
 def saytimeParnaiba():
-    response = requests.get(url)
+    response = requests.get(url_phb)
     city = response.json()['results']['city'].replace(',',' -')
     data = response.json()['results']['date']
     velocidade_vento = response.json()['results']['wind_speedy']
@@ -81,9 +101,11 @@ def saytimeParnaiba():
 
 schedule.every().friday.at("09:00").do(SayGoodFriday)
 schedule.every().day.at("08:00").do(sayGoodMorning)
+schedule.every().day.at("14:40").do(sayPrevisaoParnaiba)
 schedule.every().day.at("22:00").do(sayGoodNight)
 schedule.every(2).hours.at(":10").do(DrinkWater)
 schedule.every().hour.at(":40").do(saytimeParnaiba)
+
 try:    
     while True:
         schedule.run_pending()
