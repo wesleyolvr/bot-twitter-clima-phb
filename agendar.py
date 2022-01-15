@@ -95,7 +95,7 @@ def saytimeParnaiba():
     min = day_today['min']
     
     # text = f'Clima em {city} em {data}\n🕐 Ultima consulta: {horario}\n🌡️ Temperatura: {graus}°C com {descricao}\n🌬️ Velocidade do vento: {velocidade_vento}.\n🌅 Nascer do Sol: {nascer_sol}\n🌇 Por do Sol: {por_sol}'
-    text = f'Clima em {city} em {data}\n🌡️ Max: {max}°C\n🥶 Min: {min}°C\n🌡️ T️emperatura: {graus}°C , {descricao}\n🌬️ Velocidade do vento: {velocidade_vento}.\n🌅 Nascer do Sol: {nascer_sol}\n🌇 Por do Sol: {por_sol}\n🕐 Ultima consulta: {horario}'
+    text = f'Clima em {city} em {data}\n🌡️ Max: {max}°C\n🥶 Min: {min}°C\n☁️ T️emperatura: {graus}°C , {descricao}\n🌬️ Velocidade do vento: {velocidade_vento}.\n🌅 Nascer do Sol: {nascer_sol}\n🌇 Por do Sol: {por_sol}\n🕐 Ultima consulta: {horario}'
     print(text)
     try:
         api.update_status(status=text)
