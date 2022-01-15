@@ -66,10 +66,11 @@ def sayGoodNight():
 def sayPrevisaoParnaiba():
     print('Previsão para o dia seguinte')
     response = requests.get(url_phb)
-    data_previsao = response.json()['results']['forecast'][1]['date']
-    dia_previsao = response.json()['results']['forecast'][1]['weekday']
-    max = response.json()['results']['forecast'][1]['max']
-    min = response.json()['results']['forecast'][1]['min']
+    day_today = response.json()['results']['forecast'][0]
+    data_previsao = day_today['date']
+    dia_previsao = day_today['weekday']
+    max = day_today['max']
+    min = day_today['min']
     text = f'Previsão para {dia_previsao}, {data_previsao}:\n🌡️ Max: {max}°C\n🥶 Min: {min}°C'
     print(text)
     try:
@@ -89,9 +90,12 @@ def saytimeParnaiba():
     graus = response.json()['results']['temp']
     horario = response.json()['results']['time']
     descricao = response.json()['results']['description']
+    day_today = response.json()['results']['forecast'][0]
+    max = day_today['max']
+    min = day_today['min']
     
     # text = f'Clima em {city} em {data}\n🕐 Ultima consulta: {horario}\n🌡️ Temperatura: {graus}°C com {descricao}\n🌬️ Velocidade do vento: {velocidade_vento}.\n🌅 Nascer do Sol: {nascer_sol}\n🌇 Por do Sol: {por_sol}'
-    text = f'Clima em {city} em {data}\n🕐 Ultima consulta: {horario}\n🌡️ T️emperatura: {graus}°C , {descricao}\n🌬️ Velocidade do vento: {velocidade_vento}.\n🌅 Nascer do Sol: {nascer_sol}\n🌇 Por do Sol: {por_sol}'
+    text = f'Clima em {city} em {data}\n🌡️ Max: {max}°C\n🥶 Min: {min}°C\n🌡️ T️emperatura: {graus}°C , {descricao}\n🌬️ Velocidade do vento: {velocidade_vento}.\n🌅 Nascer do Sol: {nascer_sol}\n🌇 Por do Sol: {por_sol}\n🕐 Ultima consulta: {horario}'
     print(text)
     try:
         api.update_status(status=text)
@@ -104,7 +108,7 @@ schedule.every().friday.at("09:00").do(SayGoodFriday)
 schedule.every().day.at("08:00").do(sayGoodMorning)
 schedule.every().day.at("22:00").do(sayGoodNight)
 schedule.every(2).hours.at(":10").do(DrinkWater)
-schedule.every().hour.at(":40").do(saytimeParnaiba)
+schedule.every(2).hours.at(":40").do(saytimeParnaiba)
 
 try:    
     while True:
