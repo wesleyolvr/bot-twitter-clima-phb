@@ -14,11 +14,24 @@ def DrinkWater():
               'ja bebeu agua? não? pois vaitimbora beber agua então abestado! 💦🚰',
               'Beba água, ja bastam as pedras no caminho, não queira ter nos ✨ rins ✨ ',
               'Você não é um cacto, beba água! 💦🚰',
-              'Hidrate-se para :\n-Ter uma pele jovem\n-Ajudar o metabolismo\n-Regular o intestino\n-Eliminar toxinas\n-Emagrecer'
+              'Hidrate-se para :\n-Ter uma pele jovem\n-Ajudar o metabolismo\n-Regular o intestino\n-Eliminar toxinas\n-Emagrecer',
               'Por favor, não se esqueça de beber agua, te amo ❤️',
               'Quando você quer algo e não sabe o quê, beba água. é sempre água. 💦',
               'nera tu que disse que ia ser fitness esses dias? pois vai pelo menos beber água! 💦',
-              'BEBA AGUA, pois se você não cuida do seu corpo, onde vocẽ vai viver? 💦🚰']
+              'BEBA AGUA, pois se você não cuida do seu corpo, onde vocẽ vai viver? 💦🚰',
+              "Você é 70% água, então vamos manter o seu 'eu' hidratado e feliz! 💦🚰",
+              "Água é a poção mágica dos atletas... ou pelo menos é o que ouvi dizer! 💦🚰",
+              "Água: o elixir da vida, e também uma ótima desculpa para pausas no trabalho! 💦🚰",
+              "Quer ter um cérebro brilhante? Beba água e deixe seu pensamento fluir como um rio! 💦🚰",
+              "Água, o combustível que mantém seu corpo funcionando sem pedir aumento! 💦🚰",
+              "Beber água é como um banho interno - só que mais refrescante e sem a necessidade de sabonete! 💦🚰",
+              "Se a vida te der limões, adicione água e faça uma limonada. Ou beba água pura mesmo, porque é mais fácil! 💦🚰",
+              "Água é como dinheiro: quanto mais você tem, mais segura a onda! 💦🚰",
+              "Complete a frase: Água é vida, porque _________. #HidrataçãoSaudável 💦🚰",
+              "Qual é a sua dica criativa para beber mais água durante o dia? Compartilhe nos comentários! 💧 #DicasDeHidratação 💦🚰",
+              "Se você fosse uma garrafa d'água, qual seria a sua marca e por quê? Responda abaixo! 💦 #MarcaHidratada 💦🚰",
+              "Vamos brincar de jogo da palavra! Escreva uma palavra que rime com 'água' nos comentários. Eu começo: Sede! 😄 #RimaDaÁgua 💦🚰",
+              "Sabia que a água tem superpoderes? Conte-nos um benefício surpreendente da hidratação nos comentários! 💪💧 #SuperpoderesDaÁgua 💦🚰"]
     text = random.choice(frases)
     print(text)
     try:
